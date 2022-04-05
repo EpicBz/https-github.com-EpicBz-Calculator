@@ -5,6 +5,16 @@
 //  Created by Angela Yu on 01/07/2019.
 //  Copyright © 2019 The App Brewery. All rights reserved.
 //
+// Editited Bryan on 03/12/2022
+// enhamcents made
+// math calaculations
+// percentage
+// All Clear
+// Postive Negative
+// Bryan 4/5/2022 New enhamecents
+// added Power function by 2 or by any number
+// added Square Root function by 2
+// added Log function
 
 import UIKit
 
@@ -47,7 +57,7 @@ class ViewController: UIViewController {
     
     @IBAction func Operators(_ sender: UIButton) {
         
-        if(Display.text != "" && sender.tag != 11 && sender.tag != 12 && sender.tag != 13 && sender.tag != 18 && sender.tag != 21 && sender.tag != 22){
+        if(Display.text != "" && sender.tag != 11 && sender.tag != 12 && sender.tag != 13 && sender.tag != 18 && sender.tag != 20 && sender.tag != 21){
             
             previousNumber = Double(Display.text!)!
             
@@ -60,10 +70,9 @@ class ViewController: UIViewController {
                 Display.text = "-"
             case 17:
                 Display.text = "+"
+                // Determines if the user is determining the power of
             case 19:
                 Display.text = "X^"
-            case 20:
-                Display.text = "X√ X"
             default:
                 Display.text = "Error! Check the entry!"
             }
@@ -80,6 +89,7 @@ class ViewController: UIViewController {
                 Display.text = String(previousNumber - currentNumber)
             case 17:
                 Display.text = String(previousNumber + currentNumber)
+                // calaculates users preivous number (base) by the power of current number (power)
             case 19:
                 Display.text = String(pow(previousNumber, currentNumber))
             default:
@@ -101,8 +111,13 @@ class ViewController: UIViewController {
     //   enhancements finds the sqr root power by 2
         }else if sender.currentTitle == "X^2"{
             Display.text = String(currentNumber * currentNumber)
+            
         }else if sender.currentTitle == "√"{
             Display.text = String(sqrt(currentNumber))
+            
+            // does the log10 funcrion on the number currently displayed
+        }else if sender.currentTitle == "ln"{
+            Display.text = String(log10(currentNumber))
         }
         
         
