@@ -19,7 +19,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+// delcaring needed variables and UI elements
+    
     @IBOutlet weak var Display: UILabel!
     
     var currentNumber: Double = 0
@@ -36,7 +37,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func Numbers(_ sender: UIButton) {
-        
+        //creates the  number currently on display
         if performingMath == true {
             Display.text = String(sender.tag - 1)
             currentNumber = Double(Display.text!)!
@@ -58,7 +59,7 @@ class ViewController: UIViewController {
     @IBAction func Operators(_ sender: UIButton) {
         
         if(Display.text != "" && sender.tag != 11 && sender.tag != 12 && sender.tag != 13 && sender.tag != 18 && sender.tag != 20 && sender.tag != 21){
-            
+            //stores preivous number
             previousNumber = Double(Display.text!)!
             
             switch sender.tag {
